@@ -1,25 +1,26 @@
-# KURONO
+# kurono-web
 
-Website for KURONO studio — things made slowly, across disciplines.
+Monorepo for KURONO web projects.
 
-## Structure
+## Sites
 
-```
-index.html       — entry point
-css/main.css     — all styles (design tokens, layout, animations)
-js/cursor.js     — custom cursor with smooth lag and hover states
-js/swarm.js      — canvas boids particle system forming the letter K
-js/main.js       — entry point: nav scroll, reveal observer, imports
-```
+| Directory     | Domain         | Description                              |
+|---------------|----------------|------------------------------------------|
+| `kurono-org/` | kurono.org     | Main studio site — warm-dark, particle K |
+| `cruzar-ia/`  | cruzar.ia      | (in development)                         |
 
 ## Running locally
 
-Open `index.html` directly in a browser, or serve with any static file server:
+Each site is plain static — no build step required.
 
 ```bash
-npx serve .
-# or
+cd kurono-org
 python3 -m http.server
+# open http://localhost:8000
 ```
 
-ES module imports require a server (not `file://`) when testing locally.
+ES module imports require a server (not `file://`).
+
+## Deployment
+
+Each site deploys independently. A GitHub Actions workflow per site is needed to deploy from its subdirectory to GitHub Pages (or any static host).
